@@ -1,43 +1,29 @@
-const express = require ('express');
+
+require("dotenv").config();
+const express = require('express');
+const path = require ('path');
+
 const app = express();
-const path = require('path')
+app.use(express.static('public'));
 
-const PORT = 3030
+const port = process.env.PORT || 4000 ;
 
-/*app.get('/',(req, res) => {
-    console.log();
-    res.send("TamoActivo?")
-})*/
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/views/home.html");
+  });
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+  app.get('/register', (req, res) => {
+     res.sendFile(__dirname + "/views/register.html");
+  });
 
+  app.get('/login', (req, res) => {
+    res.sendFile(__dirname + "/views/login.html");
+ });
 
-app.get('/',(req, res) => {
-    res.sendFile(path.resolve('./views/index.html'));
-})
-app.get('/babbage',(req, res) => {
-    res.sendFile(path.resolve('./views/babbage.html'));
-})
-app.get('/lovelace',(req, res) => {
-    res.sendFile(path.resolve('./views/lovelace.html'));
-})
-app.get('/berners-lee',(req, res) => {
-    res.sendFile(path.resolve('./views/berners-lee.html'));
-})
-app.get('/clarke',(req, res) => {
-    res.sendFile(path.resolve('./views/clarke.html'));
-})
-app.get('/hamilton',(req, res) => {
-    res.sendFile(path.resolve('./views/hamilton.html'));
-})
-app.get('/hopper',(req, res) => {
-    res.sendFile(path.resolve('./views/hopper.html'));
-})
-app.get('/turing',(req, res) => {
-    res.sendFile(path.resolve('./views/turing.html'));
-})
+const publicPath = path.resolve (__dirname, './public');
+app.use( express.static(publicPath));
 
-app.listen(3030, () => {
-    console.log("el servi está corriendo")
+app.listen(port, () =>{
+    console.log(
+      `Servidor corriendo en el puerto ${port}`);
 })

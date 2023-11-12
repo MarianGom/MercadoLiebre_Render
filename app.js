@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 const express = require('express');
 const path = require ('path');
@@ -6,7 +5,7 @@ const path = require ('path');
 const app = express();
 app.use(express.static('public'));
 
-const port = process.env.PORT || 4000 ;
+const port = process.env.PORT || 4000;
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/views/home.html");

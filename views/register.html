@@ -63,16 +63,16 @@
     </header>
     <form  id="registerForm" action="/" method="GET">
         <label for="nombre"></label>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" minlength="3" required>
 
-        <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario">
+        <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" minlength="5" required>
 
-        <input type="email" id="email" name="email" placeholder="Email">
+        <input type="email" id="email" name="email" placeholder="Email" required>
 
         <h3>Fecha de Nacimiento</h3>
-        <input type="date" id="fechaNac" name="fecha" placeholder="mm/dd/yyyy">
+        <input type="date" id="fechaNac" name="fecha" placeholder="mm/dd/yyyy" required>
 
-        <input type="text" id="domicilio" name="domicilio" placeholder="Domicilio">
+        <input type="text" id="domicilio" name="domicilio" placeholder="Domicilio" required>
 
         <h3>Perfil de usuario</h3>
         <div class="radioButton">
@@ -94,10 +94,10 @@
         <input type="file" id="fotoUsuario" name="fotoUsuario" accept="image/*">
 
         <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" >
+        <input type="password" id="contrasena" name="contrasena" minlength="6" required>
 
         <label for="confirmarContrasena">Confirmar Contraseña:</label>
-        <input type="password" id="confirmarContrasena" name="confirmarContrasena">
+        <input type="password" id="confirmarContrasena" name="confirmarContrasena" minlength="6" required>
         <div class="enviar-borrar">
         <button class="enviar" type="submit">Enviar</button>
         <button class="borrar "type="reset">Borrar</button>
